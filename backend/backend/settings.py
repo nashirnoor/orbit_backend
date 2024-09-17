@@ -29,7 +29,7 @@ SECRET_KEY = "(5)1hdt1*$d--+y6oj1q&bm(2vlz_arwzd4e2s-=9)x=9^dc@y"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['orbitbackend-production.up.railway.app']
 
 
 # Application definition
