@@ -135,7 +135,7 @@ import os
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 # Where collectstatic will put static files for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
