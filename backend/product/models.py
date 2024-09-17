@@ -9,11 +9,13 @@ class Category(models.Model):
         return self.name
     class Meta:
         verbose_name_plural = "Categories"
+        
 class SubCategory(models.Model):
     name=models.CharField(max_length=50,unique=True)
     category=models.ForeignKey(Category,on_delete=models.CASCADE,related_name='sub_catogeries')
     def __str__(self) -> str:
         return self.name
+    
 class Product(models.Model):
     name=models.CharField(max_length=128,unique=True)
     image=models.ImageField(upload_to='products')
