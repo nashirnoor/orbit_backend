@@ -133,12 +133,17 @@ import os
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# Where collectstatic will put static files for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This is for development: custom static files you want to serve
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+# Whitenoise settings for serving static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
