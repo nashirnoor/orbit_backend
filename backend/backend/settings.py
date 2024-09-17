@@ -30,10 +30,11 @@ SECRET_KEY = "(5)1hdt1*$d--+y6oj1q&bm(2vlz_arwzd4e2s-=9)x=9^dc@y"
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://orbitbackend-production.up.railway.app',
-#     # Add any other trusted origins here
-# ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://orbitbackend-production.up.railway.app',
+    # Add any other trusted origins here
+]
 
 
 
