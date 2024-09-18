@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "(5)1hdt1*$d--+y6oj1q&bm(2vlz_arwzd4e2s-=9)x=9^dc@y"
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     'corsheaders',
     'rest_framework',
     'product'
@@ -133,17 +135,28 @@ import os
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_URL = '/static/'
-MEDIA_URL = 'media/'
 
+# This should be an absolute path
+
+STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'davba5oar',
+    'API_KEY': '176899228391954',
+    'API_SECRET': 'EOlDvP6_BXw319F8S7G1JrY5wZQ'
+}
 # Where collectstatic will put static files for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# This is for development: custom static files you want to serve
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# Whitenoise settings for serving static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
